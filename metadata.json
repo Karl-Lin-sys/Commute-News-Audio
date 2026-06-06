@@ -1,0 +1,6 @@
+{
+  "name": "Commute News Audio",
+  "description": "Transforms news articles into a personalized, easy-to-listen commute summary using Gemini Text-to-Speech.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
