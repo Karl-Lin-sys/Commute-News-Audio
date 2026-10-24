@@ -1,3 +1,4 @@
+import { localApiOnly } from './local-api-guard.mjs';
 import { GoogleGenAI } from "@google/genai";
 import express from "express";
 import path from "path";
@@ -7,6 +8,7 @@ const PORT = 3000;
 
 async function startServer() {
   const app = express();
+app.use('/api', localApiOnly(() => PORT));
   app.use(express.json());
 
   // API Route for generating the audio summary
@@ -88,7 +90,7 @@ ${text}`,
     });
   }
 
-  app.listen(PORT, "0.0.0.0", () => {
+  app.listen(PORT, "127.0.0.1", () => {
     console.log(`Server running on http://localhost:${PORT}`);
   });
 }
